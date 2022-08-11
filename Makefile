@@ -13,7 +13,7 @@ linkedlist:
 	@echo "|            LISTA            |"
 	@echo "==============================="
 	@echo "Compilando o biblioteca LinkedList. Programa LinkedListTest"
-	gcc LinkedList.c LinkedList.h LinkedListTest.c -o linkedlist
+	gcc LinkedList.c LinkedList.h LinkedListTest.c log.h log.c -o linkedlist
 	chmod +x linkedlist
 clear:
 	@echo " "
