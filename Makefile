@@ -1,4 +1,4 @@
-all: clear pointers linkedlist doublylinkedlist
+all: clean pointers linkedlist doublylinkedlist generalizedlinkedlist
 pointers:
 	@echo " "
 	@echo "==============================="
@@ -20,10 +20,18 @@ doublylinkedlist:
 	@echo "==============================="
 	@echo "|         LISTA-DUPLA         |"
 	@echo "==============================="
-	@echo "Compilando o biblioteca LinkedList. Programa LinkedListTest"
+	@echo "Compilando o biblioteca DoublyLinkedList. Programa DoublyLinkedListTest"
 	gcc DoublyLinkedList.c DoublyLinkedList.h DoublyLinkedListTest.c log.h log.c -o doublylinkedlist
 	chmod +x doublylinkedlist
-clear:
+generalizedlinkedlist:	
+	@echo " "
+	@echo "==============================="
+	@echo "|      LISTA-GENERALIZADA     |"
+	@echo "==============================="
+	@echo "Compilando o biblioteca GeneralizedLinkedList. Programa GeneralizedLinkedListTest"
+	gcc GeneralizedLinkedList.c GeneralizedLinkedList.h GeneralizedLinkedListTest.c log.h log.c -o generalizedlinkedlist
+	chmod +x generalizedlinkedlist
+clean:
 	@echo " "
 	@echo "==============================="
 	@echo "|    REMOVENDO PROGRAMAS      |"
@@ -32,3 +40,4 @@ clear:
 	rm -f pointers
 	rm -f linkedlist
 	rm -f doublylinkedlist
+	rm -f generalizedlinkedlist

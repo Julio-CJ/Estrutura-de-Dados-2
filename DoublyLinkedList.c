@@ -104,9 +104,8 @@ bool isEmpty(DoublyLinkedList *list) {
 int indexOf(DoublyLinkedList *list, void *data, compare equal) {
     log_info("Buscando posição do elemento");
     log_trace("indexOf ->");
-    log_trace("indexOf <-");    
     if (isEmpty(list)) return -1;
-    int count=0;
+    int count=1;
     Node *aux = list->first->next;
    
     while(aux!=list->first && !equal(aux->data,data)) {
@@ -254,7 +253,7 @@ void showMem(DoublyLinkedList *list){
     log_info("Mostrando os endereços da lista");
     log_trace("showMem ->");
 
-    printf("Trash node: %p\n\n", list->first);
+    printf("Trash node: %p\n", list->first);
     Node *aux = list->first->next;
     printf("Node addr: Previous - Date - Next\n");
     while(aux != list->first){
