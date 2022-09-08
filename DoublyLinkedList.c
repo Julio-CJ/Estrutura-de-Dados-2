@@ -107,14 +107,14 @@ int indexOf(DoublyLinkedList *list, void *data, compare equal) {
     log_trace("indexOf <-");    
     if (isEmpty(list)) return -1;
     int count=0;
-    Node *aux = list->first;
+    Node *aux = list->first->next;
    
-    while(aux!=NULL && !equal(aux->data,data)) {
+    while(aux!=list->first && !equal(aux->data,data)) {
         aux=aux->next;
         count++;
     }
     log_trace("indexOf <-");    
-    return (aux==NULL)?-1:count;
+    return (aux==list->first)?-1:count;
 }
 void* getPos(DoublyLinkedList *list, int pos) {
     log_info("Retornando dados na posição %d", pos);
