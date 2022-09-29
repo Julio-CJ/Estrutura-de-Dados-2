@@ -3,28 +3,19 @@
 #include "stack.h"
 
 void init(Stack *stack) {
-    stack = (Stack *)malloc(sizeof(Stack));
-
-    if (stack != NULL){
     stack->top = NULL;
     stack->size = 0;
-    }
 }
 bool push(Stack *stack, void *data) {
-    Node *aux = (Node *)malloc(sizeof(Node));
+    Node *newNode = (Node *)malloc(sizeof(Node));
 
     if (stack == NULL) return false;
 
-    aux->data = data;
-    aux->under = NULL;
+    newNode->data = data;
+    newNode->under = NULL;
 
-    if (isEmpty(stack)) {
-        stack->top = aux;
-    }
-    else {
-        aux->under = stack->top;
-        stack->top = aux;    
-    }
+    newNode->under = stack->top;
+    stack->top = stack->top->under;    
 
     stack->size++;
     return true;
@@ -65,10 +56,8 @@ void show(Stack *stack) {
     printf("\n( ");
 
     if (stack != NULL) {
-        int *auxData;
         for (Node *aux = stack->top; aux->under != NULL; aux = aux->under){
-            auxData = (int *)aux->data;
-            printf("%d ", *auxData);
+            printf("%p ", aux->data);
         }
     }
 
