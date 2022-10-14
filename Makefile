@@ -1,4 +1,4 @@
-all: clean pointers linkedlist doublylinkedlist generalizedlinkedlist
+all: clean pointers linkedlist doublylinkedlist generalizedlinkedlist hash
 pointers:
 	@echo " "
 	@echo "==============================="
@@ -31,6 +31,14 @@ generalizedlinkedlist:
 	@echo "Compilando o biblioteca GeneralizedLinkedList. Programa GeneralizedLinkedListTest"
 	gcc GeneralizedLinkedList.c GeneralizedLinkedList.h GeneralizedLinkedListTest.c log.h log.c -o generalizedlinkedlist
 	chmod +x generalizedlinkedlist
+hash:	
+	@echo " "
+	@echo "==============================="
+	@echo "|         TABELA-HASH         |"
+	@echo "==============================="
+	@echo "Compilando o biblioteca Hash. Programa HashTest"
+	gcc Hash.c Hash.h HashTest.c DoublyLinkedList.c DoublyLinkedList.h log.h log.c -o hash
+	chmod +x hash
 clean:
 	@echo " "
 	@echo "==============================="
@@ -41,3 +49,4 @@ clean:
 	rm -f linkedlist
 	rm -f doublylinkedlist
 	rm -f generalizedlinkedlist
+	rm -f hash
