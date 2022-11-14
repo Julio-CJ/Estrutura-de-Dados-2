@@ -1,4 +1,4 @@
-all: clean pointers linkedlist doublylinkedlist generalizedlinkedlist hash
+all: clean pointers linkedlist doublylinkedlist generalizedlinkedlist hash binarysearchtree
 pointers:
 	@echo " "
 	@echo "==============================="
@@ -39,6 +39,14 @@ hash:
 	@echo "Compilando o biblioteca Hash. Programa HashTest"
 	gcc Hash.c Hash.h HashTest.c DoublyLinkedList.c DoublyLinkedList.h log.h log.c -o hash
 	chmod +x hash
+binarysearchtree:
+	@echo " "
+	@echo "==============================="
+	@echo "|        ÁRVORE-BINÁRIA       |"
+	@echo "==============================="
+	@echo "Compilando o biblioteca Arvore de Busca Binária. Programa BinarySearchTreeTest"
+	gcc BinarySearchTree.c BinarySearchTree.h BinarySearchTreeTest.c log.h log.c -o binarysearchtree
+	chmod +x binarysearchtree
 clean:
 	@echo " "
 	@echo "==============================="
@@ -50,3 +58,4 @@ clean:
 	rm -f doublylinkedlist
 	rm -f generalizedlinkedlist
 	rm -f hash
+	rm -f binarysearchtree
