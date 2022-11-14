@@ -58,7 +58,7 @@ void post_order(TreeNode *root, printNode print) {
 }
 
 int removeTreeNode(TreeNode **root, void *key, TreeComparator f) {
-    if((*root() == NULL) return 0;
+    if((*root) == NULL) return 0;
     int compvalue = f(key, (*root)->element);
     if(compvalue < 0) {
         removeTreeNode(&(*root)->left, key, f);
@@ -85,8 +85,8 @@ int removeTreeNode(TreeNode **root, void *key, TreeComparator f) {
             aux = NULL;
         }
         else {
-            int hl = height(root->left);
-            int hr = height(root->right);
+            int hl = height((*root)->left);
+            int hr = height((*root)->right);
             if(hl > hr) {
                 aux = greaterRight(&(*root)->left);
                 aux->left = (*root)->left;
@@ -160,4 +160,5 @@ TreeNode *greaterRight(TreeNode **no) {
             *no = NULL;
         }
         return aux;
+    }
 }
